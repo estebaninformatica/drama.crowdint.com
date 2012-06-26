@@ -45,6 +45,7 @@ class DramasController < ApplicationController
   # POST /dramas.json
   def create
     @drama = Drama.new(params[:drama])
+    @drama.creator = current_user
 
     respond_to do |format|
       if @drama.save
