@@ -1,4 +1,6 @@
 Crowdrama::Application.routes.draw do
+  devise_for :users
+
   resources :dramas
   root to: 'home#show'
 
