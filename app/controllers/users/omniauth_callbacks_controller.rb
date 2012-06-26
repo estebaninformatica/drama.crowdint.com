@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_filter :authenticate
+
   def google_apps
     auth_hash = request.env['omniauth.auth']
     email = auth_hash.info['email']
