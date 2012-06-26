@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @drama.description %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @drama.creator_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_drama_path(@drama) %> |
+<%= link_to 'Back', dramas_path %>
