@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'devise'
 gem 'omniauth-google-apps'
+gem 'heroku'
+gem 'unicorn'
 
 
 # Gems used only for assets and not required
