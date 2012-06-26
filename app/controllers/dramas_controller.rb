@@ -1,4 +1,8 @@
 class DramasController < ApplicationController
+  before_filter do
+    redirect_to user_omniauth_authorize_path :google_apps unless current_user
+  end
+
   # GET /dramas
   # GET /dramas.json
   def index
