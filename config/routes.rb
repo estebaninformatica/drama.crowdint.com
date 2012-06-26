@@ -1,5 +1,6 @@
 Crowdrama::Application.routes.draw do
   resources :dramas
+  root to: 'home#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
