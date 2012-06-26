@@ -1,6 +1,6 @@
 class DramasController < ApplicationController
   before_filter do
-    redirect_to user_omniauth_authorize_path :google_apps unless current_user
+    redirect_to root_path unless current_user.can_dramate
   end
 
   # GET /dramas
