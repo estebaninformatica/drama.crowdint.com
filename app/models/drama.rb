@@ -2,7 +2,11 @@ class Drama < ActiveRecord::Base
   attr_accessible :description
   belongs_to :creator, class_name: 'User'
 
-  before_validation :add_drama_at
+  state_machine initial: 'submitted'
+
+  def self.submitted
+    with_state :submitted
+  end
 
   def self.days_without_drama
     last_drama = last

@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'omniauth-google-apps'
 gem 'pg'
 gem 'unicorn'
+gem 'simple_form'
+gem 'state_machine'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
