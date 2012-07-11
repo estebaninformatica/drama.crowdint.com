@@ -11,14 +11,22 @@ namespace :load do
     @users = User.all
 
     # Fake dramas with 9 votes
-    20.times do |i|
-      drama = Drama.new description: Faker::Lorem.paragraph
-      drama.creator = @users.sample
-      drama.save!
+    10.times do |i|
+    	drama = random_drama
 
       @users.each do |user|
         drama.upvote_by user
       end
     end
+
+  	random_drama
   end
+end
+
+def random_drama
+  drama = Drama.new description: Faker::Lorem.paragraph
+  drama.creator = @users.sample
+  drama.save!
+
+  drama
 end
