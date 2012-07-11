@@ -9,7 +9,7 @@ end
 Then /^I should see that "(.*?)" has (\d+) votes?$/ do |description, expected_votes|
   within("tr:contains('#{description}')") do
     actual_votes = find("td.votes").text
-    assert_equal expected_votes, actual_votes
+    assert_equal "#{expected_votes} votes", actual_votes
   end
 end
 

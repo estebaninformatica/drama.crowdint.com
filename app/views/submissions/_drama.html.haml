@@ -1,6 +1,6 @@
 %tr
   %td= drama.description
   %td= drama.email
-  %td.votes= drama.votes.count
+  %td.votes= "#{drama.votes.count} votes"
   - if drama.can_vote?(current_user)
     %td= link_to 'Upvote', submission_votes_path(drama), method: :post
