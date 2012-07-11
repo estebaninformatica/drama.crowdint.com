@@ -19,7 +19,9 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
+gem 'cucumber-rails', group: :development
+
 group :development, :test do
-  gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'faker'
 end
