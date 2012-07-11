@@ -16,7 +16,7 @@ Feature: Vote for a drama
     And 9 test users voted for "No more coffee" drama
     When I go to the home page
     Then I should not see "No more coffee"
-    When I go to the submissions page
+    When I click on "Vote for drama"
     And I click on "Upvote"
     Then I should be on the submissions page
     And I should not see "No more coffee"

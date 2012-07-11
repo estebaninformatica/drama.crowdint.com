@@ -10,6 +10,8 @@ class Drama < ActiveRecord::Base
     end
   end
 
+  delegate :email, to: :creator
+
   def can_vote?(user)
     (self.creator != user) && (votes.select {|v| v.voter == user}.empty?)
   end
