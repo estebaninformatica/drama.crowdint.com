@@ -72,6 +72,12 @@ GEM
     ffi (1.0.11)
     gherkin (2.11.1)
       json (>= 1.4.6)
+    haml (3.1.6)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hashie (1.2.0)
     heroku (2.28.10)
       heroku-api (~> 0.2.7)
@@ -190,6 +196,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  haml-rails
   heroku
   jquery-rails
   omniauth-google-apps
