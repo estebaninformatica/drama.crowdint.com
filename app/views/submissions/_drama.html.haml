@@ -1,1 +1,5 @@
-= drama.description
+%tr
+  %td= drama.description
+  %td.votes= drama.votes.count
+  - if drama.can_vote?(current_user)
+    %td= link_to 'Upvote', submission_votes_path(drama), method: :post

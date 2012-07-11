@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711052735) do
+ActiveRecord::Schema.define(:version => 20120711055250) do
 
   create_table "dramas", :force => true do |t|
     t.text     "description"
@@ -30,5 +30,14 @@ ActiveRecord::Schema.define(:version => 20120711052735) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "drama_id"
+    t.integer  "voter_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "votes", ["drama_id", "voter_id"], :name => "index_votes_on_drama_id_and_voter_id", :unique => true
 
 end

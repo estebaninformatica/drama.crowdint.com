@@ -2,7 +2,13 @@ class Drama < ActiveRecord::Base
   attr_accessible :description
   belongs_to :creator, class_name: 'User'
 
+  has_many :votes
+
   state_machine initial: 'submitted'
+
+  def can_vote?(user)
+    (self.creator != user) && (votes.select {|v| v.voter == user}.empty?)
+  end
 
   def self.submitted
     with_state :submitted
