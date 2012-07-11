@@ -1,4 +1,5 @@
-%h1 Submitted Drama
+.row
+  %h1 Submitted Drama
 
-%table
-  %tbody= render partial: 'drama', collection: @dramas
+  %table.table.table-striped
+    %tbody= render partial: 'drama', collection: @dramas

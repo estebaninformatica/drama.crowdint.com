@@ -1,3 +1,6 @@
-= simple_form_for @drama, url: submissions_path do |f|
-  = f.input :description
-  = f.submit
+.row
+  %h1 New Drama
+
+  = simple_form_for @drama, :html => {:class => 'form-inline' }, url: submissions_path do |f|
+    = f.input :description, :input_html => { rows: 8 }
+    = f.submit
