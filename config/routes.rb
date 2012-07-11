@@ -4,6 +4,8 @@ Crowdrama::Application.routes.draw do
   resources :dramas
   root to: 'home#show'
 
+  match 'backdoor' => 'backdoor#login' if Rails.env.test?
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
