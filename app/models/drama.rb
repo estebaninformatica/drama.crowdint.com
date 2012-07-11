@@ -39,6 +39,10 @@ class Drama < ActiveRecord::Base
     order('drama_at DESC')
   end
 
+  def self.ordered_by_created_at
+    order('created_at DESC')
+  end
+
   def self.all_ordered_and_published
     all_ordered.published
   end

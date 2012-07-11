@@ -14,6 +14,6 @@ class SubmissionsController < ApplicationController
   end
 
   def index
-    @dramas = Drama.submitted
+    @dramas = Drama.ordered_by_created_at.submitted
   end
 end
