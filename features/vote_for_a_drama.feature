@@ -11,3 +11,15 @@ Feature: Vote for a drama
     Then I should see that "No more coffee" has 1 vote
     And I should not see the "Upvote" link for "No more coffee"
 
+  Scenario: When I give the final vote, the drama is published
+    Given user "john@crowdint.com" created a drama described as "No more coffee"
+    And 9 test users voted for "No more coffee" drama
+    When I go to the home page
+    Then I should not see "No more coffee"
+    When I go to the submissions page
+    And I click on "Upvote"
+    Then I should be on the submissions page
+    And I should not see "No more coffee"
+    When I go to the home page
+    Then I should see "No more coffee"
+

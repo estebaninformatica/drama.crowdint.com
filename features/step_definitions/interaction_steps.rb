@@ -14,3 +14,7 @@ Then /^I should see "(.*?)"$/ do |text|
   assert page.has_content?(text), "Current page has no content '#{text}'"
 end
 
+Then /^I should not see "(.*?)"$/ do |text|
+  assert page.has_no_content?(text), "Current page still has content '#{text}'"
+end
+
