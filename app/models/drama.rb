@@ -40,7 +40,7 @@ class Drama < ActiveRecord::Base
   end
 
   def self.ordered_by_created_at
-    order('created_at DESC')
+    order('created_at DESC').includes(:creator, :votes => :voter)
   end
 
   def self.all_ordered_and_published
