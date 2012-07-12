@@ -1,8 +1,10 @@
-%tr.row
+%tr.row.drama-row{"data-drama-id" => drama.id}
   %td.span5= drama.description
   %td.span3= drama.email
   %td.span2= drama.created_at.strftime "%m/%d/%Y"
-  %td.span1.votes= "#{drama.votes.count} votes"
-  %td.span1
+  %td.span1.votes
+    %span.vote-count= drama.votes.count
+    votes
+  %td.span1.upvote-link
     - if drama.can_vote?(current_user)
-      = link_to 'Upvote', submission_votes_path(drama), method: :post
+      = link_to 'Upvote', '#'

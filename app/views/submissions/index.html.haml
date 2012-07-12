@@ -3,3 +3,11 @@
 
   %table.table.table-striped
     %tbody= render partial: 'drama', collection: @dramas
+
+- content_for :scripts do
+  :javascript
+    $( function() {
+      $('tr.drama-row').each(function (i, dramaRow) {
+        view = new Voter.Views.UpvoteLinkView({el: $(dramaRow)});
+      });
+    });

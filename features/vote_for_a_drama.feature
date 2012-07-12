@@ -1,3 +1,5 @@
+@javascript
+
 Feature: Vote for a drama
 
   Background:
