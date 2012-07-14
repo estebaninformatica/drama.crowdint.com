@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Set default variables (if not before with ENV variables)
+if [ -z $CC_RUBY ]; then CC_RUBY=1.9.3; fi
+if [ -z $CC_GEMSET ]; then CC_GEMSET=crowdrama; fi
+
+# Initialize RVM
+source "$HOME/.rvm/scripts/rvm"
+
+# Change to the gemset
+rvm --create --install $CC_RUBY@$CC_GEMSET
+
+# Is bundler installed?
+# TODO: remove the --pre after bundler version 2.2 is released
+which bundle || gem install bundler --pre
+
+echo "-- Project dependencies"
+export DISPLAY=:0.0
+bundle install > /dev/null 2>&1
+bundle exec rake db:schema:load > /dev/null 2>&1
+bundle exec rake db:test:prepare > /dev/null 2>&1
+
+echo "-- Build project"
+bundle exec rake
