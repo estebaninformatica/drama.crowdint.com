@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  description: MyText
-  creator_id: 1
-
-two:
-  description: MyText
-  creator_id: 1
