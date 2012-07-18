@@ -27,4 +27,7 @@ group :development, :test do
   gem 'faker'
   gem 'heroku'
   gem 'rspec-rails'
+  gem 'spork'
+  gem 'autotest-rails'
+  gem 'autotest-growl'
 end

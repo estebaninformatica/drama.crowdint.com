@@ -3,6 +3,7 @@ class Drama < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
 
   has_many :votes
+  has_many :voters, :through => :votes
 
   state_machine initial: :submitted do
     event :publish do
@@ -13,7 +14,7 @@ class Drama < ActiveRecord::Base
   delegate :email, to: :creator
 
   def can_vote?(user)
-    (self.creator != user) && (votes.select {|v| v.voter == user}.empty?)
+    (self.creator != user) && (!voters.include?(user))
   end
 
   def upvote_by(user)
