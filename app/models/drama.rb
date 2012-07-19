@@ -31,7 +31,7 @@ class Drama < ActiveRecord::Base
     with_state :published
   end
 
-  def self.days_without_drama(last_drama)
+  def self.days_without_drama(last_drama = Drama.all_ordered_and_published.first)
     last_drama_date = (last_drama ? last_drama.drama_at : Time.zone.now)
     ((Time.zone.now - last_drama_date) / 1.day).to_i
   end
