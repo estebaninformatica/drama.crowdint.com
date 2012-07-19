@@ -12,3 +12,10 @@ Given /^(\d+) test users voted for "(.*?)" drama$/ do |user_count, drama|
     drama.upvote_by user
   end
 end
+
+Given /^the last drama happened (\d+) days ago$/ do |days_ago|
+  drama = Drama.create!
+  drama.drama_at = days_ago.to_i.days.ago
+
+  drama.publish!
+end

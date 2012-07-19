@@ -11,6 +11,6 @@
   %body
     .container
       .header.row
-        .span12= render partial: 'header'
+        .span12= render partial: 'header', locals: { streak: @streak }
       = yield
     %footer Powered by Hormones... and Alcohol
