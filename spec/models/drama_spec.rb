@@ -45,4 +45,31 @@ describe Drama do
       Drama.days_without_drama(last_drama).should eq(5)
     end
   end
+
+  context :add_drama_at do
+    let(:timestamp) { Time.at(111111111111) }
+
+    context "drama_at is not set" do
+      before do
+        subject.drama_at = nil
+      end
+
+      it "sets new drama_at date" do
+        Time.stub(:now).and_return timestamp
+
+        subject.add_drama_at
+        subject.drama_at.should == Time.zone.now
+      end
+    end
+
+    context "drama_at is already set" do
+      before do
+        subject.drama_at = timestamp
+      end
+
+      it "leaves it alone" do
+        subject.add_drama_at.should == timestamp
+      end
+    end
+  end
 end
