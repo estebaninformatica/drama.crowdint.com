@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe Drama do
+  let(:current_user) { User.new }
+
   describe :can_vote? do
-    let(:current_user) { User.new }
 
     context "provided user is not the creator" do
       before do
@@ -37,7 +38,7 @@ describe Drama do
     end
   end
 
-  context :days_without_drama do
+  describe :days_without_drama do
     it "returns the difference in days from last drama to today" do
       last_drama = Drama.new
       last_drama.drama_at = 5.days.ago
@@ -46,7 +47,21 @@ describe Drama do
     end
   end
 
-  context :add_drama_at do
+  describe :upvote_by do
+    let(:vote) { Vote.new }
+
+    before do
+      vote.stub(:save!)
+      subject.stub_chain(:votes, :build).and_return vote
+      subject.upvote_by current_user
+    end
+
+    it "sets the provided user as the voter" do
+      vote.voter.should be(current_user)
+    end
+  end
+
+  describe :add_drama_at do
     let(:timestamp) { Time.at(111111111111) }
 
     context "drama_at is not set" do
@@ -72,4 +87,6 @@ describe Drama do
       end
     end
   end
+
+
 end
