@@ -88,5 +88,25 @@ describe Drama do
     end
   end
 
+  describe :expired? do
+    context "created at later than allowed hours" do
+      before do
+        subject.created_at = Drama::EXPIRATION_HOURS + 10
+      end
 
+      it "returns true" do
+        subject.expired?.should be_true
+      end
+    end
+
+    context "created at recently" do
+      before do
+        subject.created_at = 1.hour.ago
+      end
+
+      it "returns false" do
+        subject.expired?.should be_false
+      end
+    end
+  end
 end

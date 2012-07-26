@@ -1,8 +1,8 @@
 Given /^user "(.*?)" created a drama described as "(.*?)"$/ do |email, description|
-  user          = User.find_or_create_by_email email
-  drama         = Drama.new description: description
-  drama.creator = user
-  drama.save!
+  user           = User.find_or_create_by_email email
+  @drama         = Drama.new description: description
+  @drama.creator = user
+  @drama.save!
 end
 
 Given /^(\d+) test users voted for "(.*?)" drama$/ do |user_count, drama|
@@ -18,4 +18,8 @@ Given /^the last drama happened (\d+) days ago$/ do |days_ago|
   drama.drama_at = days_ago.to_i.days.ago
 
   drama.publish!
+end
+
+Given /^that drama was created (\d+) days ago$/ do |days_ago|
+  @drama.update_attribute :created_at, days_ago.to_i.days.ago
 end

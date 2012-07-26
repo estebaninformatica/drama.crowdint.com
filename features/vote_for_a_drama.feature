@@ -28,3 +28,13 @@ Feature: Vote for a drama
     Then I should see "No more coffee"
     And I should see "Our record is 6 days without drama!"
 
+  Scenario: Drama expiration
+    Given user "john@crowdint.com" created a drama described as "No more coffee"
+    And user "john@crowdint.com" created a drama described as "Expired drama"
+    And that drama was created 3 days ago
+    When I go to the home page
+    Then I should not see "Expired drama"
+    When I click on "Vote for drama"
+    Then I should not see "Expired drama"
+    And I should see "No more coffee"
+

@@ -1,4 +1,6 @@
 class Drama < ActiveRecord::Base
+  EXPIRATION_HOURS = 24
+
   attr_accessible :description
   belongs_to :creator, class_name: 'User'
 
@@ -50,5 +52,13 @@ class Drama < ActiveRecord::Base
 
   def add_drama_at
     self.drama_at ||= Time.zone.now
+  end
+
+  def self.recent
+    where("created_at > ?", EXPIRATION_HOURS.hours.ago)
+  end
+
+  def expired?
+    self.created_at.to_i < EXPIRATION_HOURS.hours.ago.to_i
   end
 end
