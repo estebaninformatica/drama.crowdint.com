@@ -16,4 +16,4 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 # Temporarily disabled since I am not sure it works with
 # Mountain Lion
 #
-# Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit
