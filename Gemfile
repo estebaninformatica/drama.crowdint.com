@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
-gem 'sqlite3'
 
 gem 'devise'
 gem 'haml-rails'
@@ -29,6 +28,7 @@ group :development, :test do
   gem 'heroku'
   gem 'rspec-rails'
   gem 'spork'
+  gem 'sqlite3'
   gem 'autotest-rails'
   gem 'autotest-growl'
 end
