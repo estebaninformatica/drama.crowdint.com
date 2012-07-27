@@ -1,0 +1,22 @@
+server: &server
+  encoding: utf8
+  reconnect: false
+  pool: 5
+  host: 127.0.0.1
+  adapter: postgresql
+  username: postgres
+
+development:
+  <<: *server
+  database: drama
+
+test: &test
+  <<: *server
+  database: drama_test<%= ENV['TEST_ENV_NUMBER'] %>
+
+production:
+  <<: *server
+  database: drama
+
+cucumber:
+  <<: *test
