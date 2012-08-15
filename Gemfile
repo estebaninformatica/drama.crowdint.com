@@ -19,7 +19,7 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
-gem 'cucumber-rails', group: :development
+gem 'cucumber-rails', group: :test
 
 group :development, :test do
   gem 'capybara-webkit'
