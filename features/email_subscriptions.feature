@@ -14,3 +14,10 @@ Feature: Email subscriptions
     And I uncheck "Email Notifications"
     Then "Email Notifications" should be unchecked
     Then user should not be subscribed to emails
+
+  Scenario: Persisted subscriptions
+    Given the user is subscribed to notifications
+    Given I go to the home page
+    And I click on "Subscription"
+    Then "Email Notifications" should be checked
+

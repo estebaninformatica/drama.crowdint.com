@@ -3,9 +3,9 @@ class Drama.Views.SubscriptionApp extends Backbone.View
 
   initialize: ->
     @user = new Drama.Models.Subscription
-    @user.fetch()
+    @user.fetch
+      success: =>
+        @subscriptionView = new Drama.Views.SubscriptionView
+          model: @user
 
-    @subscriptionView = new Drama.Views.SubscriptionView
-      model: @user
-
-    @$el.append @subscriptionView.render().el
+        @$el.append @subscriptionView.render().el

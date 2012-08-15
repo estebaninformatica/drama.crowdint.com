@@ -1,9 +1,10 @@
 class Drama.Views.SubscriptionView extends Backbone.View
-  template: ->
+  template:
     JST.subscription
 
   render: ->
-    @$el.html @template()
+    @$el.html @template(@model.toJSON())
+
     @
 
   events:
