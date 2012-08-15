@@ -1,0 +1,1 @@
+json.subscribed current_user.subscribed

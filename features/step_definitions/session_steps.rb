@@ -3,6 +3,6 @@ Given /^I am logged in as a crowdie$/ do
 end
 
 Given /^Given I am logged in as "(.*?)"$/ do |email|
-  user = User.create! email: email
+  @user = User.create! email: email
   visit "/backdoor?email=#{email}"
 end

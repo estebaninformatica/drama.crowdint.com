@@ -16,5 +16,6 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
+//= require handlebars
 //= require namespaces
 //= require_tree .

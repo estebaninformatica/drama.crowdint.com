@@ -4,6 +4,9 @@ Crowdrama::Application.routes.draw do
   resources :submissions do
     resources :votes, only: :create
   end
+
+  resource :subscription, only: [:edit, :update, :show]
+
   root to: 'home#show'
 
   match 'backdoor' => 'backdoor#login' if Rails.env.test?

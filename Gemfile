@@ -4,13 +4,15 @@ gem 'rails', '3.2.8'
 
 gem 'devise'
 gem 'haml-rails'
+gem 'handlebars-rails', git: 'https://github.com/niklas/handlebars-rails.git'
 gem 'jquery-rails'
+gem 'jbuilder'
 gem 'omniauth-google-apps'
 gem 'pg'
 gem 'rails-backbone'
-gem 'unicorn'
 gem 'simple_form'
 gem 'state_machine'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
