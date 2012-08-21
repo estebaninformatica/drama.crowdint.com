@@ -3,9 +3,9 @@ class EmailNotifier
     User.subscribed.collect(&:email)
   end
 
-  def self.drama_created
+  def self.drama_created(drama)
     recipients.each do |email|
-      NotificationMailer.drama_created(email).deliver
+      NotificationMailer.drama_created(email, drama).deliver
     end
   end
 end

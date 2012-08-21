@@ -3,4 +3,6 @@ Then /^an email notification should be sent only to subscribed users$/ do
   mail = ActionMailer::Base.deliveries.last
   mail.should_not be_nil
   mail.to.should include(@user.email)
+
+  puts mail
 end

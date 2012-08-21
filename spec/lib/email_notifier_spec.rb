@@ -13,13 +13,14 @@ describe EmailNotifier do
 
   describe "#drama_created" do
     let(:email) { stub }
+    let(:drama) { stub }
 
     it "notifies all subscribed users" do
       EmailNotifier.should_receive(:recipients).and_return %w(test@test.com)
-      NotificationMailer.should_receive(:drama_created).with('test@test.com').
+      NotificationMailer.should_receive(:drama_created).with('test@test.com', drama).
           and_return(email)
       email.should_receive :deliver
-      EmailNotifier.drama_created
+      EmailNotifier.drama_created drama
     end
   end
 end

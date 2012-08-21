@@ -9,7 +9,7 @@ class SubmissionsController < ApplicationController
     @drama         = Drama.new params[:drama]
     @drama.creator = current_user
     if @drama.save
-      EmailNotifier.drama_created
+      EmailNotifier.drama_created @drama
       redirect_to :submissions
     else
       render action: 'new'
