@@ -61,5 +61,9 @@ module Crowdrama
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.default_url_options = {
+      :host => "drama.crowdint.com"
+    }
   end
 end
