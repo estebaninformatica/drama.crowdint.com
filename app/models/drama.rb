@@ -7,6 +7,8 @@ class Drama < ActiveRecord::Base
   has_many :votes
   has_many :voters, :through => :votes
 
+  validates :description, :presence => true
+
   state_machine initial: :submitted do
     event :publish do
       transition :submitted => :published

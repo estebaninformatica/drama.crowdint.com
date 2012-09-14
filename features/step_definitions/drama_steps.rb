@@ -14,7 +14,7 @@ Given /^(\d+) test users voted for "(.*?)" drama$/ do |user_count, drama|
 end
 
 Given /^the last drama happened (\d+) days ago$/ do |days_ago|
-  drama = Drama.create!
+  drama = Drama.create! :description => Faker::Lorem.sentence
   drama.drama_at = days_ago.to_i.days.ago
 
   drama.publish!
