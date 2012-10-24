@@ -9,9 +9,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
       :subscribed
 
-  devise :omniauthable
+  devise :omniauthable, :token_authenticatable
+
+  before_save :ensure_authentication_token
 
   def self.subscribed
     where(subscribed: true)
+
   end
 end
