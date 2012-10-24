@@ -27,7 +27,6 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'faker'
-  gem 'heroku'
   gem 'rspec-rails'
   gem 'spork'
   gem 'sqlite3'
