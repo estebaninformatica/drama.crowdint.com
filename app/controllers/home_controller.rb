@@ -3,6 +3,10 @@ class HomeController < ApplicationController
     # Have to call all so I can get the last drama for the
     # second statement
     @dramas = Drama.all_ordered_and_published.all
-    @days_without_drama = @dramas.first ? Drama.days_without_drama(@dramas.first) : 365
+    begin
+      @days_without_drama = @dramas.first ? Drama.days_without_drama(@dramas.first) : 365
+    rescue
+      @days_without_drama = 0
+    end
   end
 end
