@@ -1,6 +1,8 @@
 require 'email_notifier'
 
 class SubmissionsController < ApplicationController
+  respond_to :json, :html
+
   def new
     @drama = Drama.new
   end
