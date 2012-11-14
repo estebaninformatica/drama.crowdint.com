@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  prepend_before_filter :api_key, :determine_request_source
-  before_filter :authenticate, :calculate_streak
+  prepend_before_filter :api_key
+  before_filter :authenticate, :calculate_streak, :determine_request_source
 
   def authenticate
     redirect_to user_omniauth_authorize_path :google_apps unless current_user
