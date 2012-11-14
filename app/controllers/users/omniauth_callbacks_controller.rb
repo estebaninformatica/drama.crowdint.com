@@ -9,13 +9,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user ||= User.create!(email: email)
 
     if user.persisted?
-      sign_in_and_redirect user
+      if iphone?
+        redirect_to 'drama://' + user.authentication_token
+      else
+        sign_in_and_redirect user
+      end
     end
   end
 
   def crowdint
     redirect_to user_omniauth_authorize_path :google_apps
   end
-
 end
 
