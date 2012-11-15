@@ -10,7 +10,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if user.persisted?
       if iphone?
-        redirect_to 'drama://' + user.authentication_token
+        user.email =~ /(.*)\@(.*)/
+        redirect_to "drama://#{$1}/#{user.authentication_token}"
       else
         sign_in_and_redirect user
       end
