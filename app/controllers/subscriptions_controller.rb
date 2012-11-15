@@ -7,5 +7,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
+    render :json => {:subscribed => current_user.subscribed}
   end
 end
