@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/josevalim/active_model_serializers.git
+  revision: 9f5e1b1776b67e2a601b0205fbba705a0cde55e6
+  specs:
+    active_model_serializers (0.5.2)
+      activemodel (>= 3.0)
+
+GIT
   remote: https://github.com/niklas/handlebars-rails.git
   revision: b1e88d7d818d33607c542fd31644f43d072beed5
   specs:
@@ -219,6 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers!
   autotest-growl
   autotest-rails
   bootstrap-sass

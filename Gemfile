@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+gem "active_model_serializers", :git => "git://github.com/josevalim/active_model_serializers.git"
 gem 'devise'
 gem 'haml-rails'
 gem 'handlebars-rails', git: 'https://github.com/niklas/handlebars-rails.git'
