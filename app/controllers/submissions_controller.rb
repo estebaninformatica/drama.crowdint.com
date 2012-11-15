@@ -12,7 +12,8 @@ class SubmissionsController < ApplicationController
     @drama.creator = current_user
     if @drama.save
       EmailNotifier.drama_created @drama
-      redirect_to :submissions
+      #redirect_to :submissions
+      respond_with @drama, :location => :submissions
     else
       render action: 'new'
     end
