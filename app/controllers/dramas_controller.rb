@@ -3,5 +3,6 @@ class DramasController < ApplicationController
 
   def index
     @dramas = Drama.all_ordered_and_published
+    respond_with @dramas
   end
 end
