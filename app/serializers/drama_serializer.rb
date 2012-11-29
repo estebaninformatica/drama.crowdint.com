@@ -1,3 +1,3 @@
 class DramaSerializer < ActiveModel::Serializer
-  attributes :description, :drama_at
+  attributes :id, :description, :drama_at, :created_at
 end
