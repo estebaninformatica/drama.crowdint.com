@@ -1,6 +1,6 @@
 class Drama < ActiveRecord::Base
   EXPIRATION_HOURS = 24
-  REQUIRED_VOTES   = 10
+  REQUIRED_VOTES   = 15
 
   attr_accessible :description
   belongs_to :creator, class_name: 'User'
