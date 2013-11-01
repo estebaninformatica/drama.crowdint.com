@@ -23,7 +23,11 @@ group :assets do
   gem 'bootstrap-sass'
 end
 
-gem 'cucumber-rails', group: :test
+group :test do
+  gem 'cucumber-rails'
+  gem 'fivemat'
+end
+
 
 group :development, :test do
   gem 'capybara-webkit'
