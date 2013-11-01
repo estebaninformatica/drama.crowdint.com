@@ -3,7 +3,9 @@ class Streak < ActiveRecord::Base
 
   def self.best_streak
     streak = Streak.ordered_by_days_without_drama_desc.first
-    streak ? streak.days_without_drama : 0
+    longest_streak = streak ? streak.days_without_drama : 0
+    last_drama = Drama.days_without_drama
+    [longest_streak, last_drama].max
   end
 
   def self.ordered_by_days_without_drama_desc
